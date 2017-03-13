@@ -21,17 +21,18 @@ namespace Shopping.Web.Controllers
             int count;
 
             count = 0;
-            var query = new CRL.ExpressionJoin<Product>(b => b.ProductStatus == CRL.Package.Product.ProductStatus.已上架);
+            //var query = new CRL.ExpressionJoin<Product>(b => b.ProductStatus == CRL.Package.Product.ProductStatus.已上架);
+            var query = BLL.ProductManage.Instance.GetLambdaQuery();//创建查询
             if (!string.IsNullOrEmpty(k))
             {
-                query.And(b => b.ProductName.Contains(k));
+                query.Where(b => b.ProductName.Contains(k));
             }
             if (!string.IsNullOrEmpty(c))
             {
-                query.And(b => b.CategoryCode.StartsWith(c));
+                query.Where(b => b.CategoryCode.StartsWith(c));
             }
             //使用缓存搜索
-            IEnumerable<Product> products = BLL.ProductManage.Instance.QueryFromCache(query.GetExpression());
+            IEnumerable<Product> products = BLL.ProductManage.Instance.QueryFromCache(b => b.ProductStatus == CRL.Package.Product.ProductStatus.已上架);
             products = products.OrderByDescending(b => b.Id);
             count = products.Count();
             var result = products.Skip((page - 1) * pageSize).Take(pageSize).ToList();
