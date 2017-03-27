@@ -61,7 +61,7 @@ namespace WebTest.Code
     [CRL.Attribute.Table(TableName="table1")]//映射表名为table1
     public class ModelTest:CRL.IModelBase
     {
-        protected override bool CheckRepeatedInsert
+        protected override bool CheckRepeatedInsert   //当在短时间内, 插入相同的数据,CRL默认为重复提交了,重复依据为数据内容MD5值
         {
             get
             {

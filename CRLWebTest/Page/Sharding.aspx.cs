@@ -17,11 +17,17 @@ namespace WebTest.Page
 {
     public partial class Sharding : System.Web.UI.Page
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
         string error;
+
         protected void Button1_Click(object sender, EventArgs e)
         {
             var n = CRL.Sharding.DB.DataBaseManage.Instance.Count(b => b.Id > 0);

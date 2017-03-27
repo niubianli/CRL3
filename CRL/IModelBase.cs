@@ -19,7 +19,7 @@ namespace CRL
     /// 基类,包含Id, AddTime字段
     /// </summary>
     [Serializable]
-    public abstract class IModelBase : IModel
+    public abstract class IModelBase : IModel  //定义为主键
     {
         /// <summary>
         /// 自增主键

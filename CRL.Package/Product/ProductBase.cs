@@ -15,7 +15,7 @@ namespace CRL.Package.Product
     /// <summary>
     /// 产品基本类型
     /// </summary>
-    public class ProductBase : IModelBase
+    public class ProductBase : IModelBase  //IModelBase包含int类型主键ID和AddTime字段,继承后满足一般自增主键要求
     {
         /// <summary>
         /// 商家ID
@@ -29,7 +29,7 @@ namespace CRL.Package.Product
         /// <summary>
         /// 产品名称
         /// </summary>
-        [CRL.Attribute.Field(Length = 100)]
+        [CRL.Attribute.Field(Length = 100)]  //定义列长度
         public string ProductName
         {
             get;

@@ -17,7 +17,7 @@ namespace Shopping.BLL
     /// <summary>
     /// 产品管理
     /// </summary>
-    public class ProductManage:CRL.BaseProvider<Product>
+    public class ProductManage : CRL.BaseProvider<Product>  //创建对象管理类,一般框架肯定会报错,找不到数据表,CRL不会,因为它自动创建了
     {
         public static ProductManage Instance
         {
