@@ -32,7 +32,7 @@ namespace CRL.Sharding.DB
         /// 多次调用递增处理
         /// </summary>
         /// <param name="item"></param>
-        public void Create(DataBase item)
+        public void   Create(DataBase item)
         {
             var db = QueryItem(b => b.Id > 0, true);
             if (db == null)

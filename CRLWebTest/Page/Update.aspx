@@ -51,7 +51,7 @@
     <pre>
         //关联更新
         c = new CRL.ParameCollection();
-        //参数会按拼接处理
+        //参数会按拼接处理  右边$符表示关联表
         c["UserId"] = "$UserId";//order.userid=product.userid
         c["Remark"] = "2222";//order.remark=2222
         Code.OrderManage.Instance.Update&lt;Code.ProductData>((a, b) => a.Id == b.Id && b.Number > 10, c);

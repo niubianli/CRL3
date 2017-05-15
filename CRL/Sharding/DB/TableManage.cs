@@ -31,9 +31,9 @@ namespace CRL.Sharding.DB
             table.DataBaseName = db.Name;
             if (table.IsMainTable)
             {
-                table.MaxPartDataTotal = db.MaxMainDataTotal;
+                table.MaxPartDataTotal = db.MaxMainDataTotal;//数据表的最大数据量=主数据表最大数据量（库容量为10）
             }
-            table.TablePartTotal = 1;
+            table.TablePartTotal = 1; //分表数
             var item = QueryItem(b => b.DataBaseName == table.DataBaseName && b.TableName == table.TableName);
             if (item != null)
             {
@@ -53,7 +53,7 @@ namespace CRL.Sharding.DB
             else
             {
                 part.MainDataStartIndex = db.MainDataStartIndex;
-                part.MainDataEndIndex = db.MainDataStartIndex + table.MaxPartDataTotal-1;
+                part.MainDataEndIndex = db.MainDataStartIndex + table.MaxPartDataTotal - 1;//单个订单表容量为5
             }
             part.PartName = table.TableName;
             DBExtend.InsertFromObj(part);

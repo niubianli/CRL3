@@ -51,19 +51,19 @@ namespace WebTest
                     return WebTest.Code.LocalSqlHelper.TestConnection;
                 }
             };
-            #region 缓存服务端实现
+            #region 缓存服务端实现  杨保兴  测试用不到先屏蔽吧
             //增加处理规则
-            CRL.CacheServerSetting.AddCacheServerDealDataRule(typeof(Code.ProductData), Code.ProductDataManage.Instance.DeaCacheCommand);
+            //CRL.CacheServerSetting.AddCacheServerDealDataRule(typeof(Code.ProductData), Code.ProductDataManage.Instance.DeaCacheCommand);
             //启动服务端
-            var cacheServer = new CRL.CacheServer.TcpServer(11236);
-            cacheServer.Start();
+            //var cacheServer = new CRL.CacheServer.TcpServer(11236);
+           // cacheServer.Start();
             #endregion
 
             //实现缓存客户端调用
             //有多个服务器添加多个
             //要使用缓存服务,需要设置ProductDataManage.QueryCacheFromRemote 为 true
-            CRL.CacheServerSetting.AddTcpServerListen("127.0.0.1", 11236);
-            CRL.CacheServerSetting.Init();
+           // CRL.CacheServerSetting.AddTcpServerListen("127.0.0.1", 11236);
+           // CRL.CacheServerSetting.Init();
         }
 
     }

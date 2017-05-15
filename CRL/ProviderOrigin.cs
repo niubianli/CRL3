@@ -270,7 +270,7 @@ namespace CRL
         /// 返回全部结果[基本方法]
         /// </summary>
         /// <returns></returns>
-        public List<TModel> QueryList()
+        public List<TModel>  QueryList()
         {
             AbsDBExtend db = GetDBExtend();
             return db.QueryList<TModel>();
